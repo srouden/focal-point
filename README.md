@@ -27,6 +27,7 @@ Be sure to __adjust your browser window size to as small as it can go__ and __ta
  - [Alf](http://www.cdnconnect.com/demos/focal-point-alf)
  - [MacGyver](http://www.cdnconnect.com/demos/focal-point-macgyver)
 
+Also check out the DesignShack.net article [Focal Point: Intelligent Cropping of Responsive Images](http://designshack.net/articles/css/focal-point-intelligent-cropping-of-responsive-images/) by [Joshua Johnson](http://twitter.com/secondfret) for a better visualization of how it works.
 
 ## 12x12 Grid
 
@@ -105,6 +106,7 @@ __Requirements:__
 ## Other Resources
 
  - [Responding to the New High-Resolution Web: Considerations for High-Density Displays [slidedeck]](https://dl.dropbox.com/u/75469230/responding-to-the-hi-res-web/index.html)
+ - [Focal Point: Intelligent Cropping of Responsive Images [DesignShack]](http://designshack.net/articles/css/focal-point-intelligent-cropping-of-responsive-images/)
  - [A framework for discussing responsive images solutions [Jason Grigsby]](http://blog.cloudfour.com/a-framework-for-discussing-responsive-images-solutions/)
  - [Foresight.js](https://github.com/adamdbradley/foresight.js): JavaScript plugin that judges device display and network connectivity, then requests the appropriate image. Used by Washington Post's mobile site.
  - [Which responsive images solution should you use? [CSS-Tricks]](http://css-tricks.com/which-responsive-images-solution-should-you-use/)
