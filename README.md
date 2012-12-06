@@ -71,6 +71,35 @@ Below is an example of setting the image's focal point 1 out of 6 units to the r
         <div><img src="http://demo.cdnconnect.com/images/hi-res/chrysler-plant.w1020.q20.jpg"></div>
     </div>
 
+## Sass mixin
+
+The mixin gives web authors using Sass the ability to fully customize the Focal Point framework to their needs. 
+
+- __Custom grid:__ You're able to define your own grid by adding more units for better focal precision (more classes) or use fewer units for a simpler grid and minimal CSS output (fewer classes). `$grid` defaults to `12`.
+
+- __Landscape and/or portrait classes:__ Choose whether you prefer to generate landscape or portrait classes or both. `$landscape-classes` and `$portrait-classes`  default to `true`.
+
+- __Custom breakpoint:__ Set your own media query breakpoint. `$breakpoint` defaults to `767px`.
+
+- __Custom inner element:__ You can use a different inner element like a `<figure>` or any element with a `.class-name`. `$inner-element` defaults to `div`.
+
+### Usage:
+
+First, copy the `_focal-point.scss` file into your Sass folder.
+
+Then import the partial into your Sass document:
+    
+    @import 'focal-point';
+
+Finally include the mixin and tweak the settings if needed:
+   
+    @include focal-point(
+        $grid: 12,
+        $landscape-classes: true,
+        $portrait-classes: true,
+        $breakpoint: 767px,
+        $inner-element: div
+        );
 
 ## Discussion Points
 
