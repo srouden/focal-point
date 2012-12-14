@@ -8,7 +8,7 @@ The __Focal Point Framework__ gives web authors the flexibility of how responsiv
 
 Developers also have control to add and subtract from the framework's CSS as needed. The CSS is minimal in size, __2.98KB compressed (723 bytes gzipped)__, and can be grouped with existing CSS files as to not add any additional HTTP requests. 
 
- - Author: [Adam Bradley](https://twitter.com/adamdbradley) (c) 2012
+ - Author: [Adam Bradley](https://twitter.com/adamdbradley), cdnconnect.com (c) 2012
  - License: MIT/GPLv2
 
 ## Demos
@@ -134,6 +134,7 @@ __Requirements:__
 
 ## Other Resources
 
+ - [CDNConnect](http://www.cdnconnect.com/): Production File Management & Fast Content Delivery For The Team
  - [Responding to the New High-Resolution Web: Considerations for High-Density Displays [slidedeck]](https://dl.dropbox.com/u/75469230/responding-to-the-hi-res-web/index.html)
  - [Focal Point: Intelligent Cropping of Responsive Images [DesignShack]](http://designshack.net/articles/css/focal-point-intelligent-cropping-of-responsive-images/)
  - [A framework for discussing responsive images solutions [Jason Grigsby]](http://blog.cloudfour.com/a-framework-for-discussing-responsive-images-solutions/)
