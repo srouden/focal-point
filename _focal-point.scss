@@ -9,7 +9,7 @@
 //    - Generate landscape and/or portrait classes
 //    - Custom media query breakpoint
 //    - Custom inner html element
-//    - Custom default zoom scale
+//    - Custom default zoom factor
 //    - Additional zoom levels
 //
 // Usage:
@@ -23,7 +23,7 @@
 //      $portrait-classes: true,
 //      $breakpoint: 767px,
 //      $inner-element: div,
-//      $zoom-scale: 1,
+//      $zoom-factor: 1,
 //      $zoom-levels: 1
 //      );
 //
@@ -40,10 +40,10 @@
 @mixin focal-point(
         $grid: 12,
         $landscape-classes: true,
-        $portrait-classes: true,
-        $breakpoint: 767px,
+	$portrait-classes: true,
+	$breakpoint: 767px,
 	$inner-element: div,
-	$zoom-scale: 1,
+	$zoom-factor: 1,
 	$zoom-levels: 1
     ) {
 
@@ -58,8 +58,8 @@
     }
 
     $half-grid: $grid / 2;
-    $h: (4 * $zoom-scale);
-    $v: (3 * $zoom-scale);
+    $h: (4 * $zoom-factor);
+    $v: (3 * $zoom-factor);
     $vertical-size: $v * 2;
     $horizontal-size: $h * 2;
     $step1: $vertical-size / $grid;
