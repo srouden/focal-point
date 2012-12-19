@@ -9,6 +9,8 @@
 //    - Generate landscape and/or portrait classes
 //    - Custom media query breakpoint
 //    - Custom inner html element
+//    - Custom default zoom factor
+//    - Additional zoom levels
 //
 // Usage:
 //   // import focal-point
@@ -19,8 +21,10 @@
 //      $grid: 12,
 //      $landscape-classes: true,
 //      $portrait-classes: true,
-//      $breakpoint: 768px,
-//      $inner-element: div
+//      $breakpoint: 767px,
+//      $inner-element: div,
+//      $zoom-factor: 1,
+//      $zoom-levels: 1
 //      );
 //
 // =============================================================================
@@ -29,17 +33,18 @@
 // Table of contents:
 // 1. Variables
 // 2. Base classes
-// 3. The math
-// 4. Horizontal classes
-// 5. Vertical classes
+// 3. Landscape classes
+// 4. Portrait classes
 // =============================================================================
 
 @mixin focal-point(
         $grid: 12,
         $landscape-classes: true,
-        $portrait-classes: true,
-        $breakpoint: 767px,
-        $inner-element: div
+	$portrait-classes: true,
+	$breakpoint: 767px,
+	$inner-element: div,
+	$zoom-factor: 1,
+	$zoom-levels: 1
     ) {
 
     // =============================================================================
@@ -53,10 +58,12 @@
     }
 
     $half-grid: $grid / 2;
-    $h: 4;
-    $v: 3;
+    $h: (4 * $zoom-factor);
+    $v: (3 * $zoom-factor);
     $vertical-size: $v * 2;
     $horizontal-size: $h * 2;
+    $step1: $vertical-size / $grid;
+    $step2: $horizontal-size / $grid;
 
     // =============================================================================
     // 2. Base classes
@@ -81,84 +88,138 @@
         height: auto;
     }
 
+
     @media all and (max-width: $breakpoint) {
 
-        @for $i from 1 through $half-grid {
+	// =============================================================================
+	// 3. Landscape classes
+	// =============================================================================
 
-            // =============================================================================
-            // 3. The math
-            // =============================================================================
+	@if $landscape-classes {
 
-            $step: $vertical-size / $grid;
-            $margin1: $vertical-size - ($step * ($half-grid - $i));
-            $margin-op1: $step * ($half-grid - $i);
+	    // Base zoom
+	    // =============================================================================
 
-            $step: $horizontal-size / $grid;
-            $margin2: $horizontal-size - ($step * ($half-grid - $i));
-            $margin-op2: $step * ($half-grid - $i);
+	    .focal-point #{$inner-element} {
+		margin: -#{$v}em -#{$h}em;
+	    }
 
-            // =============================================================================
-            // 4. Landscape classes
+	    // Landscape zoom levels
             // =============================================================================
 
-            @if $landscape-classes {
+	    .focal-point {
+		@for $i from 2 through $zoom-levels {
+		    &.zoom-#{$i} {
+			#{$inner-element} {
+			    margin: -#{($v * $i)}em -#{($h * $i)}em;
+			}
+		    }
+		}
+	    }
 
-                .focal-point #{$inner-element} {
-                    margin: -#{$v}em -#{$h}em;
+	    // Landscape classes
+            // =============================================================================
+
+	    @for $i from 1 through $half-grid {
+
+		$margin1: $vertical-size - ($step1 * ($half-grid - $i));
+		$margin2: $horizontal-size - ($step2 * ($half-grid - $i));
+		$margin-op1: $step1 * ($half-grid - $i);
+		$margin-op2: $step2 * ($half-grid - $i);
+
+		@for $n from 1 through $zoom-levels {
+
+		    $zoom: '';
+		    @if $n > 1 {
+			$zoom: '.zoom-' + $n;
+		    }
+
+		    #{$zoom}.down-#{$i} #{$inner-element} {
+			   margin-top: -#{$margin1 * $n}em;
+			margin-bottom: -#{$margin-op1 * $n}em;
+		    }
+
+		    #{$zoom}.up-#{$i} #{$inner-element} {
+			   margin-top: -#{$margin-op1 * $n}em;
+			margin-bottom: -#{$margin1 * $n}em;
+		    }
+
+		    #{$zoom}.right-#{$i} #{$inner-element} {
+			 margin-left: -#{$margin2 * $n}em;
+			margin-right: -#{$margin-op2 * $n}em;
+		    }
+
+		    #{$zoom}.left-#{$i} #{$inner-element} {
+			 margin-left: -#{$margin-op2 * $n}em;
+			margin-right: -#{$margin2 * $n}em;
+		    }
                 }
+	    }
+	}
 
-                .down-#{$i} #{$inner-element} {
-                       margin-top: -#{$margin1}em;
-                    margin-bottom: -#{$margin-op1}em;
-                }
+	// =============================================================================
+	// 4. Portrait classes
+	// =============================================================================
 
-                .up-#{$i} #{$inner-element} {
-                       margin-top: -#{$margin-op1}em;
-                    margin-bottom: -#{$margin1}em;
-                }
+	@if $portrait-classes {
 
-                .right-#{$i} #{$inner-element} {
-                     margin-left: -#{$margin2}em;
-                    margin-right: -#{$margin-op2}em;
-                }
+	    // Base zoom
+	    // =============================================================================
 
-                 .left-#{$i} #{$inner-element} {
-                     margin-left: -#{$margin-op2}em;
-                    margin-right: -#{$margin2}em;
-                }
-
+	    .portrait.focal-point #{$inner-element} {
+		margin: -#{$h}em -#{$v}em;
             }
 
+	    // Portrait zoom levels
             // =============================================================================
-            // 5. Portrait classes
+
+	    .portrait.focal-point {
+		@for $i from 2 through $zoom-levels {
+		    &.zoom-#{$i} {
+			#{$inner-element} {
+			    margin: -#{($h * $i)}em -#{($v * $i)}em;
+			}
+		    }
+		}
+	    }
+
+	    // Portrait classes
             // =============================================================================
 
-            @if $portrait-classes {
+	    @for $i from 1 through $half-grid {
 
-                .portrait.focal-point #{$inner-element} {
-                    margin: -#{$h}em -#{$v}em;
-                }
+		$margin1: $vertical-size - ($step1 * ($half-grid - $i));
+		$margin2: $horizontal-size - ($step2 * ($half-grid - $i));
+		$margin-op1: $step1 * ($half-grid - $i);
+		$margin-op2: $step2 * ($half-grid - $i);
 
-                .portrait.down-#{$i} #{$inner-element} {
-                       margin-top: -#{$margin2}em;
-                    margin-bottom: -#{$margin-op2}em;
-                }
+		@for $n from 1 through $zoom-levels {
 
-                .portrait.up-#{$i} #{$inner-element} {
-                       margin-top: -#{$margin-op2}em;
-                    margin-bottom: -#{$margin2}em;
-                }
+		    $zoom: '';
+		    @if $n > 1 {
+			$zoom: '.zoom-' + $n;
+		    }
 
-                .portrait.right-#{$i} #{$inner-element} {
-                     margin-left: -#{$margin1}em;
-                    margin-right: -#{$margin-op1}em;
-                }
+		    #{$zoom}.portrait.down-#{$i} #{$inner-element} {
+			   margin-top: -#{$margin2 * $n}em;
+			margin-bottom: -#{$margin-op2 * $n}em;
+		    }
 
-                .portrait.left-#{$i} #{$inner-element} {
-                     margin-left: -#{$margin-op1}em;
-                    margin-right: -#{$margin1}em;
-                }
+		    #{$zoom}.portrait.up-#{$i} #{$inner-element} {
+			   margin-top: -#{$margin-op2 * $n}em;
+			margin-bottom: -#{$margin2 * $n}em;
+		    }
 
+		    #{$zoom}.portrait.right-#{$i} #{$inner-element} {
+			 margin-left: -#{$margin1 * $n}em;
+			margin-right: -#{$margin-op1 * $n}em;
+		    }
+
+		    #{$zoom}.portrait.left-#{$i} #{$inner-element} {
+			 margin-left: -#{$margin-op1 * $n}em;
+			margin-right: -#{$margin1 * $n}em;
+		    }
+		}
             }
         }
     }

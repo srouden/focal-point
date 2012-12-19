@@ -2,11 +2,11 @@
 
 A small set of CSS classnames to help keep images cropped on the focal point for responsive designs. Using only HTML/CSS, web authors can specify an image's focal point, which stays as the image's primary focus as the image scales on responsive webpages. This puts [web authors in control of art direction for responsive and high-resolution images](http://blog.cloudfour.com/a-framework-for-discussing-responsive-images-solutions/). Crop and re-size images depending on available width and let CSS to do all of the work, and without any JavaScript. Resize your browser down to as small as it can go when viewing the [demos](http://www.cdnconnect.com/demos/focal-point-full-house).
 
-Many of today's designs are migrating to the [responsive web design technique](http://www.abookapart.com/products/responsive-web-design) coined by [Ethan Marcotte](https://twitter.com/beep). Elements should to be fluid and adjust to the available display, but a wrench is usually thrown into the system when exact pixel dimensions are set for images. The good news is that browsers only _used_ to have poor image downsizing abilities. Today's browsers, however, do a remarkable job of resizing images on the fly, which is one of the primary reasons this small framework is now possible. 
+Many of today's designs are migrating to the [responsive web design technique](http://www.abookapart.com/products/responsive-web-design) coined by [Ethan Marcotte](https://twitter.com/beep). Elements should to be fluid and adjust to the available display, but a wrench is usually thrown into the system when exact pixel dimensions are set for images. The good news is that browsers only _used_ to have poor image downsizing abilities. Today's browsers, however, do a remarkable job of resizing images on the fly, which is one of the primary reasons this small framework is now possible.
 
 The __Focal Point Framework__ gives web authors the flexibility of how responsive and hi-res images should be rendered depending on the image. For example, images can use common CSS classnames which allows a standard pattern to be resuabled throughout an entire site, which drastically reduces HTML markup and CSS required. Additionally, each individual image can also be given specific CSS for the general crop/size needed. All this without the use of any JavaScript!
 
-Developers also have control to add and subtract from the framework's CSS as needed. The CSS is minimal in size, __2.98KB compressed (723 bytes gzipped)__, and can be grouped with existing CSS files as to not add any additional HTTP requests. 
+Developers also have control to add and subtract from the framework's CSS as needed. The CSS is minimal in size, __2.98KB compressed (723 bytes gzipped)__, and can be grouped with existing CSS files as to not add any additional HTTP requests.
 
  - Author: [Adam Bradley](https://twitter.com/adamdbradley), cdnconnect.com (c) 2012
  - License: MIT/GPLv2
@@ -34,7 +34,7 @@ Also check out the DesignShack.net article [Focal Point: Intelligent Cropping of
 An image is represented in a grid of 12x12 units (no matter what its natural dimensions are), and you can locate the general focal point of each image using CSS classnames. I use the term "general" focal point because this framework is not built around exact pixels and cropping to strict dimensions. Instead it uses relative positioning to __narrow in on general areas of an image__ in an effort to crop and resize with a simple and quick markup change. If you need to crop, resize and rotate images to exact pixel-perfect dimensions for exact breakpoints widths then this framework [may not be for you](http://css-tricks.com/which-responsive-images-solution-should-you-use/).
 
 Web authors can either use default settings to crop and resize images which centers in on the image, or can specify an image's general focal point. By controlling web authoring in markup, this puts content editors in control of how content images render as responsive webpages adjust to the display.
-    
+
 
 ## High-Resolution Images, But Smaller Filesizes!
 
@@ -73,7 +73,7 @@ Below is an example of setting the image's focal point 1 out of 6 units to the r
 
 ## Sass mixin
 
-The mixin gives web authors using Sass the ability to fully customize the Focal Point framework to their needs. 
+The mixin gives web authors using Sass the ability to fully customize the Focal Point framework to their needs.
 
 - __Custom grid:__ You're able to define your own grid by adding more units for better focal precision (more classes) or use fewer units for a simpler grid and minimal CSS output (fewer classes). `$grid` defaults to `12`.
 
@@ -83,27 +83,33 @@ The mixin gives web authors using Sass the ability to fully customize the Focal 
 
 - __Custom inner element:__ You can use a different inner element like a `<figure>` or any element with a `.class-name`. `$inner-element` defaults to `div`.
 
+- __Custom default zoom factor:__ Set your own base zoom factor for more or less zooming. `$zoom-factor` defaults to `1`.
+
+- __Additional zoom levels:__ You can generate multiple zoom classes, such as .zoom-2 and .zoom-3 if you wish to use multiple zoom levels. `$zoom-levels` defaults to `1`.
+
 ### Usage:
 
 First, copy the `_focal-point.scss` file into your Sass folder.
 
 Then import the partial into your Sass document:
-    
+
     @import 'focal-point';
 
 Finally include the mixin and tweak the settings if needed:
-   
+
     @include focal-point(
         $grid: 12,
         $landscape-classes: true,
         $portrait-classes: true,
         $breakpoint: 767px,
-        $inner-element: div
+        $inner-element: div,
+        $zoom-factor: 1,
+        $zoom-levels: 1
         );
 
 ## Discussion Points
 
-__Zoom Classnames:__ The standard CSS uses a zoom factor I considered to be general enough for most cases. But some images may want more or less "zooming" depending on the image. There could easily be additional CSS classnames, such as .zoom-2 and .zoom-3, which could set how slow and fast the crop and resize adjusts. The only reason I did not create zoom classnames was to keep the CSS minimal. However, if you have a need for various zoom factors then go for it since it's definately possible.
+__Zoom Classnames:__ The standard CSS uses a zoom factor I considered to be general enough for most cases. But some images may want more or less "zooming" depending on the image. There could easily be additional CSS classnames, such as .zoom-2 and .zoom-3, which could set how slow and fast the crop and resize adjusts. The only reason I did not create zoom classnames was to keep the CSS minimal. However, if you have a need for various zoom factors then go for it since it's definately possible. The Sass mixin allows you to generate multiple zoom level classes and set a different base zoom factor.
 
 __Multiple or No Media Queries:__ Same as the zoom classnames, I chose a general breakpoint and only included one media query for common cases. This isn't to say you couldn't have two, five, or even no media queries all. Depending on your use case you could even change zoom factors between each media query. What's included with the standard CSS is general enough for most cases, or at least a good starting point for your own project.
 
