@@ -2,7 +2,7 @@
 
 A small set of CSS classnames to help keep images cropped on the focal point for responsive designs. Using only HTML/CSS, web authors can specify an image's focal point, which stays as the image's primary focus as the image scales on responsive webpages. This puts [web authors in control of art direction for responsive and high-resolution images](http://blog.cloudfour.com/a-framework-for-discussing-responsive-images-solutions/). Crop and re-size images depending on available width and let CSS to do all of the work, and without any JavaScript. Resize your browser down to as small as it can go when viewing the [demos](http://www.cdnconnect.com/demos/focal-point-full-house).
 
-Many of today's designs are migrating to the [responsive web design technique](http://www.abookapart.com/products/responsive-web-design) coined by [Ethan Marcotte](https://twitter.com/beep). Elements should to be fluid and adjust to the available display, but a wrench is usually thrown into the system when exact pixel dimensions are set for images. The good news is that browsers only _used_ to have poor image downsizing abilities. Today's browsers, however, do a remarkable job of resizing images on the fly, which is one of the primary reasons this small framework is now possible.
+Many of today's designs are migrating to the [responsive web design technique](http://www.abookapart.com/products/responsive-web-design) coined by [Ethan Marcotte](https://twitter.com/beep). Elements should to be fluid and adjust to the available display, but a wrench is usually thrown into the system when exact pixel dimensions are set for images. The good news is that browsers only _use to_ to have poor image downsizing abilities. Today's browsers, however, do a remarkable job of resizing images on the fly, which is one of the primary reasons this small framework is now possible.
 
 The __Focal Point Framework__ gives web authors the flexibility of how responsive and hi-res images should be rendered depending on the image. For example, images can use common CSS classnames which allows a standard pattern to be resuabled throughout an entire site, which drastically reduces HTML markup and CSS required. Additionally, each individual image can also be given specific CSS for the general crop/size needed. All this without the use of any JavaScript!
 
@@ -28,6 +28,8 @@ Be sure to __adjust your browser window size to as small as it can go__ and __ta
  - [MacGyver](http://www.cdnconnect.com/demos/focal-point-macgyver)
 
 Also check out the DesignShack.net article [Focal Point: Intelligent Cropping of Responsive Images](http://designshack.net/articles/css/focal-point-intelligent-cropping-of-responsive-images/) by [Joshua Johnson](http://twitter.com/secondfret) for a better visualization of how it works.
+
+Noupe.com also has an article describing Focal Point, [Focal Point: CSS-Framework Scales Down Images In Responsive Designs Intelligently](http://www.noupe.com/tools/focal-point-css-framework-scales-images-in-responsive-designs-intelligently-74315.html).
 
 ## 12x12 Grid
 
@@ -143,6 +145,7 @@ __Requirements:__
  - [CDNConnect](http://www.cdnconnect.com/): Production File Management & Fast Content Delivery For The Team
  - [Responding to the New High-Resolution Web: Considerations for High-Density Displays [slidedeck]](https://dl.dropbox.com/u/75469230/responding-to-the-hi-res-web/index.html)
  - [Focal Point: Intelligent Cropping of Responsive Images [DesignShack]](http://designshack.net/articles/css/focal-point-intelligent-cropping-of-responsive-images/)
+ - [Focal Point: CSS-Framework Scales Down Images In Responsive Designs Intelligently [noupe]](http://www.noupe.com/tools/focal-point-css-framework-scales-images-in-responsive-designs-intelligently-74315.html)
  - [A framework for discussing responsive images solutions [Jason Grigsby]](http://blog.cloudfour.com/a-framework-for-discussing-responsive-images-solutions/)
  - [Foresight.js](https://github.com/adamdbradley/foresight.js): JavaScript plugin that judges device display and network connectivity, then requests the appropriate image. Used by Washington Post's mobile site.
  - [Which responsive images solution should you use? [CSS-Tricks]](http://css-tricks.com/which-responsive-images-solution-should-you-use/)
