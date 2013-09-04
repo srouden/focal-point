@@ -10,7 +10,11 @@ Developers also have control to add and subtract from the framework's CSS as nee
  - License: MIT/GPLv2
  - [Complete Documentation](http://www.cdnconnect.com/docs/focal-point-css/pure-html-css-responsive-high-resolution-images-solution)
 
-![alt tag](http://www.noupe.com/wp-content/uploads/2013/01/focalpoint.jpg)
+![Specified focal point, focal point stays intact](http://designshack.net/wp-content/uploads/focalpoint-2.jpg)
+
+(Image Source: [design shack](http://designshack.net/articles/css/focal-point-intelligent-cropping-of-responsive-images/))
+
+![Illustration of the grid](http://www.noupe.com/wp-content/uploads/2013/01/focalpoint.jpg)
 
 (Image Source: [noupe](http://www.noupe.com/tools/focal-point-css-framework-scales-images-in-responsive-designs-intelligently-74315.html))
 
