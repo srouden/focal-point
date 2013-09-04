@@ -10,8 +10,12 @@ Developers also have control to add and subtract from the framework's CSS as nee
  - License: MIT/GPLv2
  - [Complete Documentation](http://www.cdnconnect.com/docs/focal-point-css/pure-html-css-responsive-high-resolution-images-solution)
 
+![alt tag](http://www.noupe.com/wp-content/uploads/2013/01/focalpoint.jpg)
 
-## See a way to improve this? Contribute / Contact Me
+(Image Source: [noupe](http://www.noupe.com/tools/focal-point-css-framework-scales-images-in-responsive-designs-intelligently-74315.html))
+
+
+### See a way to improve this? Contribute / Contact Me
 
 Is there a better/simpler/easier/smaller way to write the HTML/CSS all while keeping it reusable, compact, simple and meets the requirements below? Submit a pull request or contact me: [@adamdbradley](https://twitter.com/adamdbradley)
 
