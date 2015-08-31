@@ -53,7 +53,7 @@
 
     // Check if $grid is even and at least 2. If not, warn and reset grid to default.
     @if (type-of($grid) != number) or ($grid < 2) or ($grid / 2 != round($grid / 2)) {
-        @warn 'Focal Point grid should be an even number (4, 6, 8, …). Using default grid instead (12).';
+        @warn 'Focal Point grid should be an even number (4, 6, 8, ...). Using default grid instead (12).';
         $grid: 12;
     }
 
